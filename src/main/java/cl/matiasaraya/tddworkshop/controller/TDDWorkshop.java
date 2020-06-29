@@ -44,7 +44,7 @@ public class TDDWorkshop {
 			response.setMessage("El cliente se encuentra en Incumplimiento, porque su credito de tipo:"+loan.getType()+" tiene "+loan.getDaysPastDue()+" días de mora");
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		} else {
-			response.setMessage("El cliente no esta en Incumplimiento por este credito");
+			response.setMessage("El cliente no esta en Incumplimiento por este credito, ya que solo tiene "+loan.getDaysPastDue()+" días de mora");
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		}		
 	}
