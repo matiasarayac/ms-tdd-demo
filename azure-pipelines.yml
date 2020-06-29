@@ -37,3 +37,17 @@ stages:
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: latest
+
+- stage: Deploy
+  displayName: Deploy to WebApp
+  jobs:
+  - job: Deploy
+    displayName: Deploy
+    pool:
+      vmImage: 'ubuntu-latest'
+    steps:
+      - task: AzureWebAppContainer@1
+        inputs:
+          azureSubscription: 'Pay-As-You-Go Dev/Test(1b1117d0-d07b-4f24-aa35-e0e1abb131ce)'
+          appName: 'ms-tdd-demo'
+          containers: 'matiasaraya.azurecr.io/ms-tdd-demo:latest'
