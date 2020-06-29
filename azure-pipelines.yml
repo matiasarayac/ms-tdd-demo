@@ -33,7 +33,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'AzureContainerRegistry'
-        repository: 'matiasaraya.azurecr.io'
+        repository: 'ms-tdd-demo'
         command: 'buildAndPush'
         Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
         tags: latest
