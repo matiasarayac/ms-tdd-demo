@@ -42,5 +42,29 @@ public class LoanDefaultRulesServiceImplTest {
 		
 		assertThat(loanDefaultRulesServiceImpl.isInDefaultForDaysPastDue(loan)).isFalse();
 	}
+	
+	@Test
+	public void isInDefaultForDaysPastDueHipotecario119Test(){		
+		loan.setType("hipotecario");
+		loan.setDaysPastDue(119);
+		
+		assertThat(loanDefaultRulesServiceImpl.isInDefaultForDaysPastDue(loan)).isFalse();
+	}
+	
+	@Test
+	public void isInDefaultForDaysPastDueHipotecario121Test(){		
+		loan.setType("hipotecario");
+		loan.setDaysPastDue(121);
+		
+		assertThat(loanDefaultRulesServiceImpl.isInDefaultForDaysPastDue(loan)).isTrue();
+	}
+	
+	@Test
+	public void isInDefaultForDaysPastDueHipotecario120Test(){		
+		loan.setType("hipotecario");
+		loan.setDaysPastDue(120);
+		
+		assertThat(loanDefaultRulesServiceImpl.isInDefaultForDaysPastDue(loan)).isFalse();
+	}
 
 }

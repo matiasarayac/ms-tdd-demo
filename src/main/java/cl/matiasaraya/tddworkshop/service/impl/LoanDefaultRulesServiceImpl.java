@@ -11,7 +11,8 @@ public class LoanDefaultRulesServiceImpl implements LoanDefaultRulesService {
 	@Override
 	public boolean isInDefaultForDaysPastDue(Loan loan) {
 		
-		return loan.getDaysPastDue() > 90;
+		if("hipotecario".equals(loan.getType())) return loan.getDaysPastDue() > 120;
+		else return loan.getDaysPastDue() > 90;		
 	}
 
 }
